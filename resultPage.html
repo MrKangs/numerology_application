@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/resultstyles.css">
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="js/resultPage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
@@ -21,7 +22,10 @@
     <div id = "moonCard"></div>
     <img src = "img/y-0.png" alt = "yearDefault">
     <div id = "yearCard"></div>
-    <div id = "yearCardGraph"></div>
+    <div id = "yearCardGraph">
+        <h3>My Year Card Graph for 100 years since birth</h3>
+        <canvas id = "yearCardGraphCanvas" width = "1000" height = "500"></canvas>
+    </div>
     <img src = "img/y-23.png" alt = "yearCardAnalysisDefaultOne">
     <img src = "img/y-24.png" alt = "yearCardAnalysisDefaultTwo">
     <img src = "img/z-0.png" alt = "zodiacDefault">
@@ -34,7 +38,10 @@
     <img src = "img/mbti-0.png" alt = "mbtiDefaultOne">
     <img src = "img/mbti-1.png" alt = "mbtiDefaultTwo">
     <img src = "img/b-0.png" alt = "biorhythmDefault">
-    <div id = "biorhythmGraph"></div>
+    <div id = "biorhythmGraph">
+        <h3>My Biorhythm Graph for 100 years since birth</h3>
+        <canvas id = "biorhythmGraphCanvas" width = "1000" height = "500"></canvas>
+    </div>
 </body>
 <div id="profile-template" style="display: none;">
     <h2>My Life Profile</h2>

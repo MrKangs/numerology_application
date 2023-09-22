@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // zodiacTwelveCard Image Tag Insert
         const zodiacFortyEightCardImage = '<img src="{{image}}">';
 
-        var zodiacFortyEightCardImageTemplate = Handlebars.compile(zodiacTwelveCardImage);
+        var zodiacFortyEightCardImageTemplate = Handlebars.compile(zodiacFortyEightCardImage);
 
         var zodiacFortyEightCardImageData = zodiacFortyEightCardImageTemplate({image: zodiacCards2["c_image"]});
 
@@ -189,8 +189,118 @@ document.addEventListener('DOMContentLoaded', function () {
     const profileHtml = profileTemplate(profileContext);
 
     document.getElementById('profile').innerHTML = profileHtml;
+    
+    // Year Card Graph
+    const xYearCardGraph = queryObject.dataPoints.map((dataPoint) => { return dataPoint.x; });
+    const yYearCardGraph = queryObject.dataPoints.map((dataPoint) => { return dataPoint.y; });
 
-    //TODO: yearCard Graph and biorhythm Graph
+    const yearCardCanvas = document.getElementById('yearCardGraphCanvas');
+    const yearCardCtx = yearCardCanvas.getContext('2d');
 
+    const yearCardLineChart = new Chart(yearCardCtx, {
+        type: 'line',
+        data: {
+            labels: xYearCardGraph, // Should represent the x-axis values
+            datasets: [{
+                label: 'Year',
+                data: yYearCardGraph, // Should represent the y-axis values
+                backgroundColor: 'rgba(51, 102, 153, 0.5)',
+                borderColor: 'rgba(51, 102, 153)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        stepSize: 1,
+                        min: 0,
+                        max: 100,
+                    }
+                }]
+            }
+        }
+    });
 
+    // Biorhythm Graph
+    const xBiorhythmGraphstart = numDaysSinceBirth - 15;
+    var xBiorhythmGraph = [];
+    var yIntellectualGraph = [];
+    var yEmotionalGraph = [];
+    var yPhysicalGraph = [];
+    var yIntuitionGraph = [];
+
+    for (var i = xBiorhythmGraphstart; i < numDaysSinceBirth + 25; i++) {
+        var xDate = (i * (1000 * 60 * 60 * 24)) + Date.UTC(queryObject.birthYear, queryObject.birthMonth - 1, queryObject.birthDay);
+        var xday = new Date(xDate).getDate();
+        var xmonth = new Date(xDate).getMonth();
+        var xyear = new Date(xDate).getFullYear();
+        xBiorhythmGraph.push((xmonth+ 1) + "/" + xday);
+        yIntellectualGraph.push(Math.sin(2 * Math.PI * i / 33));
+        yEmotionalGraph.push(Math.sin(2 * Math.PI * i / 28));
+        yPhysicalGraph.push(Math.sin(2 * Math.PI * i / 23));
+        yIntuitionGraph.push(Math.sin(2 * Math.PI * i / 38));
+    }
+
+    const biorhythmCanvas = document.getElementById('biorhythmGraphCanvas');
+    const biorhythmCtx = biorhythmCanvas.getContext('2d');
+
+    const biorhythmLineChart = new Chart(biorhythmCtx, {
+        type: 'line',
+        data: {
+            labels: xBiorhythmGraph, // Should represent the x-axis values
+            datasets: [{
+                label: 'Intellectual',
+                data: yIntellectualGraph, // Should represent the y-axis values
+                backgroundColor: 'rgba(51, 102, 153, 0.5)',
+                borderColor: 'rgba(51, 102, 153)',
+                borderWidth: 1,
+                fill: false,
+            },
+            {
+                label: 'Emotional',
+                data: yEmotionalGraph, // Should represent the y-axis values
+                backgroundColor: 'rgba(153, 51, 102, 0.5)',
+                borderColor: 'rgba(153, 51, 102)',
+                borderWidth: 1,
+                fill: false,
+            },
+            {
+                label: 'Physical',
+                data: yPhysicalGraph, // Should represent the y-axis values
+                backgroundColor: 'rgba(102, 153, 51, 0.5)',
+                borderColor: 'rgba(102, 153, 51)',
+                borderWidth: 1,
+                fill: false,
+            },
+            {
+                label: 'Intuition',
+                data: yIntuitionGraph, // Should represent the y-axis values
+                backgroundColor: 'rgba(51, 153, 102, 0.5)',
+                borderColor: 'rgba(51, 153, 102)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        },
+        options: {
+            responsive: false,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    position: 'bottom',
+                    ticks: {
+                        stepSize: 1,
+                        min: xBiorhythmGraphstart,
+                        max: numDaysSinceBirth + 25,
+                    }
+                }]
+            }
+        }
+    });
 });
