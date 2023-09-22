@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "chartjs-plugin-annotation": "^3.0.1",
     "express": "^4.18.2",
     "handlebars": "^4.7.8",
     "jsdom": "^22.1.0",

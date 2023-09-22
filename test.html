@@ -1,0 +1,51 @@
+<html lang="en">
+   <head> 
+      <title>chartjs annotation linear</title> 
+   </head> 
+   <body translate="no">   
+    <canvas id="myChart"></canvas>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script> 
+      <script>
+      var originalLineDraw = Chart.controllers.line.prototype.draw;
+Chart.helpers.extend(Chart.controllers.line.prototype, {
+  draw: function() {
+    originalLineDraw.apply(this, arguments);
+
+    var chart = this.chart;
+    var ctx = chart.chart.ctx;
+
+    var index = chart.config.data.lineAtIndex;
+    if (index) {
+      var xaxis = chart.scales['x-axis-0'];
+      var yaxis = chart.scales['y-axis-0'];
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(xaxis.getPixelForValue(undefined, index), yaxis.top);
+      ctx.strokeStyle = '#ff0000';
+      ctx.lineTo(xaxis.getPixelForValue(undefined, index), yaxis.bottom);
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+});
+
+var config = {
+  type: 'line',
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+      label: "My First dataset",
+      data: [65, 0, 80, 81, 56, 85, 40],
+      fill: false
+    }],
+    lineAtIndex: 4
+  }
+};
+
+var ctx = document.getElementById("myChart").getContext("2d");
+new Chart(ctx, config);
+      </script>  
+   </body>
+</html>

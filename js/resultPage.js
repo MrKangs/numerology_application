@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const yearCardCanvas = document.getElementById('yearCardGraphCanvas');
     const yearCardCtx = yearCardCanvas.getContext('2d');
 
-    const yearCardLineChart = new Chart(yearCardCtx, {
+    new Chart(yearCardCtx, {
         type: 'line',
         data: {
             labels: xYearCardGraph, // Should represent the x-axis values
@@ -212,18 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         options: {
             responsive: false,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                    type: 'linear',
-                    position: 'bottom',
-                    ticks: {
-                        stepSize: 1,
-                        min: 0,
-                        max: 100,
-                    }
-                }]
-            }
+            maintainAspectRatio: false
         }
     });
 
@@ -246,43 +235,42 @@ document.addEventListener('DOMContentLoaded', function () {
         yPhysicalGraph.push(Math.sin(2 * Math.PI * i / 23));
         yIntuitionGraph.push(Math.sin(2 * Math.PI * i / 38));
     }
-
     const biorhythmCanvas = document.getElementById('biorhythmGraphCanvas');
     const biorhythmCtx = biorhythmCanvas.getContext('2d');
 
-    const biorhythmLineChart = new Chart(biorhythmCtx, {
+    new Chart(biorhythmCtx, {
         type: 'line',
         data: {
             labels: xBiorhythmGraph, // Should represent the x-axis values
             datasets: [{
                 label: 'Intellectual',
                 data: yIntellectualGraph, // Should represent the y-axis values
-                backgroundColor: 'rgba(51, 102, 153, 0.5)',
-                borderColor: 'rgba(51, 102, 153)',
+                backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                borderColor: 'rgba(0, 255, 0)',
                 borderWidth: 1,
                 fill: false,
             },
             {
                 label: 'Emotional',
                 data: yEmotionalGraph, // Should represent the y-axis values
-                backgroundColor: 'rgba(153, 51, 102, 0.5)',
-                borderColor: 'rgba(153, 51, 102)',
+                backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                borderColor: 'rgba(255, 0, 0)',
                 borderWidth: 1,
                 fill: false,
             },
             {
                 label: 'Physical',
                 data: yPhysicalGraph, // Should represent the y-axis values
-                backgroundColor: 'rgba(102, 153, 51, 0.5)',
-                borderColor: 'rgba(102, 153, 51)',
+                backgroundColor: 'rgba(0, 0, 255, 0.5)',
+                borderColor: 'rgba(0, 0, 255)',
                 borderWidth: 1,
                 fill: false,
             },
             {
                 label: 'Intuition',
                 data: yIntuitionGraph, // Should represent the y-axis values
-                backgroundColor: 'rgba(51, 153, 102, 0.5)',
-                borderColor: 'rgba(51, 153, 102)',
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                borderColor: 'rgba(0, 0, 0)',
                 borderWidth: 1,
                 fill: false,
             }]
@@ -290,17 +278,24 @@ document.addEventListener('DOMContentLoaded', function () {
         options: {
             responsive: false,
             maintainAspectRatio: false,
-            scales: {
-                xAxes: [{
-                    type: 'linear',
-                    position: 'bottom',
-                    ticks: {
-                        stepSize: 1,
-                        min: xBiorhythmGraphstart,
-                        max: numDaysSinceBirth + 25,
+            plugins: {
+                annotation: {
+                  annotations: {
+                    line1: {
+                      type: 'line',
+                      xMin: xBiorhythmGraph[15],
+                      xMax: xBiorhythmGraph[15],
+                      borderColor: 'rgb(252, 165, 3)',
+                      borderWidth: 2,
+                      label: {
+                        content: "Today",
+                        backgroundColor: 'rgba(252, 165, 3, 0.5)',
+                        display: true
+                      }
                     }
-                }]
-            }
+                  }
+                }
+              }
         }
     });
 });
