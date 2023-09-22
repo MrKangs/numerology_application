@@ -1,31 +1,7 @@
-// const express = require("express");
-// const app = express();
-// const MongoClient = require("mongodb").MongoClient;
+// For Google App Script
 
-// const mongoUrl = "mongodb://localhost:27017"; // Need to change
-// const dbName = "your_database_name"; // Need to change
-// const collectionName = "your_collection_name"; // Need to change
+// <!-- https://drive.google.com/uc?id=FILE_ID_HERE&export=download -->
 
-// async function queryDatabase(query) {
-//     const client = new MongoClient(mongoUrl, { useUnifiedTopology: true });
-
-//     try {
-//         await client.connect();
-
-//         const db = client.db(dbName);
-//         const collection = db.collection(collectionName);
-
-//         const searchQuery = {
-//         };
-
-//         const result = await collection.findOne(searchQuery).toArray();
-
-//         console.log(result);
-//     } finally
-//     {
-//         client.close();
-//     }
-// }
 
 // Calculate the Soul Card based on the user's birth year, month, and day
 function soulCardCalc(birthYear, birthMonth, birthDay){
@@ -131,6 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
             yearCard: yearCard,
             dataPoints: lifeYearCardGraphData,
         };
-        console.log(query);
+        const queryString = JSON.stringify(query);
+        window.location.href = `resultPage.html?query=${encodeURIComponent(queryString)}`;
+
+
     });
 });

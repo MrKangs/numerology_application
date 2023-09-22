@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numerology Information Retrival Page</title>
+    <link rel="stylesheet" href="css/resultstyles.css">
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="js/resultPage.js"></script>
+
+</head>
+<body>
+    <img src = "img/0-1.png" alt = "defaultOne">
+    <img src = "img/0-2.png" alt = "defaultTwo">
+    <img src = "img/0-3.png" alt = "defaultThree">
+    <img src = "img/0-4.png" alt = "defaultFour">
+    <img src = "img/0-5.png" alt = "defaultFive">
+    <div id = "profile"></div>
+    <div id = "tarot-profile"></div>
+    <div id = "soulCard"></div>
+    <img src = "img/m-0.png" alt = "moonDefault">
+    <div id = "moonCard"></div>
+    <img src = "img/y-0.png" alt = "yearDefault">
+    <div id = "yearCard"></div>
+    <div id = "yearCardGraph"></div>
+    <img src = "img/y-23.png" alt = "yearCardAnalysisDefaultOne">
+    <img src = "img/y-24.png" alt = "yearCardAnalysisDefaultTwo">
+    <img src = "img/z-0.png" alt = "zodiacDefault">
+    <div id = "zodiacTwelveCard">
+        <h2>[별자리] Zodiac Card 12 Category</h2>
+    </div>
+    <div id = "zodiacFortyEightCard">
+        <h2>[별자리] Zodiac Card 48 Category</h2>
+    </div>
+    <img src = "img/mbti-0.png" alt = "mbtiDefaultOne">
+    <img src = "img/mbti-1.png" alt = "mbtiDefaultTwo">
+    <img src = "img/b-0.png" alt = "biorhythmDefault">
+    <div id = "biorhythmGraph"></div>
+</body>
+<div id="profile-template" style="display: none;">
+    <h2>My Life Profile</h2>
+    <table>
+        <tr>
+            <th>My Name :</th>
+            <td>{{name}}</td>
+        </tr>
+        <tr>
+            <th>My Birthday :</th>
+            <td>{{birthYear}}.{{birthMonth}}.{{birthDay}}</td>
+        </tr>
+        <tr>
+            <th>The number of days since birth : </th>
+            <td>생후 {{numDaysSinceBirth}}일</td>
+        </tr>
+        <tr>
+            <th>희망 직업군 :</th>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div id="tarot-profile-template" style="display: none;">
+    <h2>My Tarot X-Profile and Category</h3>
+    <table>
+        <tr>
+            <th><p>My Soul and Sun Sign Card :</p><p>
+                My Minor Soul Card : </p></th>
+            <td>{{soulCard}} ({{soulCardName}})</td>
+        </tr>
+        <tr>
+            <th>My Moon Sign Card :</th>
+            <td>{{moonCard}} ({{moonCardName}})</td>
+        </tr>
+        <tr>
+            <th>Year Card: {{currentYear}}년 기준</th>
+            <td>{{yearCard}} ({{yearCardName}})</td>
+        </tr>
+        <tr>
+            <th>Zodiac Card : </th>
+            <td>{{zodiacCardName}}</td>
+        </tr>
+        <tr>
+            <th>My MBTI :</th>
+            <td></td>
+        </tr>
+    </table>
+</div>
+</html>
+

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^4.18.2",
+    "handlebars": "^4.7.8",
     "jsdom": "^22.1.0",
     "mongodb": "^6.1.0"
   }
