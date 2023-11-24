@@ -86,6 +86,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const zodiacCards = data["Z12_Card"][ztwelve];
         const zodiacCards2 = data["Z48_Card"][zforty];
         
+        // If the user wants basic information, then display the basic information
+        if (queryObject.needInfo == true){
+            document.getElementById('info').innerHTML += '<img src = "img/0-1.png" alt = "defaultOne"><img src = "img/0-2.png" alt = "defaultTwo"><img src = "img/0-3.png" alt = "defaultThree"><img src = "img/0-4.png" alt = "defaultFour"><img src = "img/0-5.png" alt = "defaultFive">';
+            document.getElementById('infoMoon').innerHTML += '<img src = "img/m-0.png" alt = "moonDefault">';
+            document.getElementById('infoYear1').innerHTML += '<img src = "img/y-0.png" alt = "yearDefault">';
+            document.getElementById('infoYear2').innerHTML += '<img src = "img/y-23.png" alt = "yearCardAnalysisDefaultOne"><img src = "img/y-24.png" alt = "yearCardAnalysisDefaultTwo">';
+            document.getElementById('infoZodiac').innerHTML += '<img src = "img/z-0.png" alt = "zodiacDefault">';
+            document.getElementById('infoMBTI').innerHTML += '<img src = "img/mbti-0.png" alt = "mbtiDefaultOne"><img src = "img/mbti-1.png" alt = "mbtiDefaultTwo">';
+            document.getElementById('infoLifePath').innerHTML += '<img src = "img/b-0.png" alt = "biorhythmDefault">';
+        }
+
+
         // soulCard Image Tag Insert
         const soulCardTitle = '<h2>Sun Sign(Sun:들어 나는 나의 모습) = Soul Card(1번-9번 : 9장의 카드): {{title}}</h2>';
         const soulCardImageOne = '<img src="{{imageOne}}">';
@@ -156,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const tarotProfileTemplateSource = document.getElementById('tarot-profile-template').innerHTML;
         const tarotProfileTemplate = Handlebars.compile(tarotProfileTemplateSource);
 
+        console.log(queryObject.mbti);
 
         const tarotProfileContext = {
             soulCard: queryObject.soulCard,
@@ -165,7 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
             yearCard: queryObject.yearCard,
             yearCardName: yearCards["c_name"],
             zodiacCardName: zodiacCards["c_name"],
-            currentYear: date.getFullYear(),
+            mbti: queryObject.mbti,
+            currentYear: date.getFullYear()
         }
         const tarotProfileHtml = tarotProfileTemplate(tarotProfileContext);
 

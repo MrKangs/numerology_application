@@ -10,34 +10,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body>
-    <img src = "img/0-1.png" alt = "defaultOne">
-    <img src = "img/0-2.png" alt = "defaultTwo">
-    <img src = "img/0-3.png" alt = "defaultThree">
-    <img src = "img/0-4.png" alt = "defaultFour">
-    <img src = "img/0-5.png" alt = "defaultFive">
+    <div id = "info"></div>
     <div id = "profile"></div>
     <div id = "tarot-profile"></div>
     <div id = "soulCard"></div>
-    <img src = "img/m-0.png" alt = "moonDefault">
+    <div id = "infoMoon"></div>
     <div id = "moonCard"></div>
-    <img src = "img/y-0.png" alt = "yearDefault">
+    <div id = "infoYear1"></div>
     <div id = "yearCard"></div>
     <div id = "yearCardGraph">
         <h3>My Year Card Graph for 100 years since birth</h3>
         <canvas id = "yearCardGraphCanvas" width = "1000" height = "500"></canvas>
     </div>
-    <img src = "img/y-23.png" alt = "yearCardAnalysisDefaultOne">
-    <img src = "img/y-24.png" alt = "yearCardAnalysisDefaultTwo">
-    <img src = "img/z-0.png" alt = "zodiacDefault">
+    <div id = "infoYear2"></div>
+    <div id = "infoZodiac"></div>
     <div id = "zodiacTwelveCard">
         <h2>[별자리] Zodiac Card 12 Category</h2>
     </div>
     <div id = "zodiacFortyEightCard">
         <h2>[별자리] Zodiac Card 48 Category</h2>
     </div>
-    <img src = "img/mbti-0.png" alt = "mbtiDefaultOne">
-    <img src = "img/mbti-1.png" alt = "mbtiDefaultTwo">
-    <img src = "img/b-0.png" alt = "biorhythmDefault">
+    <div id = "infoMBTI"></div>
+    <div id ="infoLifePath"></div>
     <div id = "biorhythmGraph">
         <h3>My Biorhythm Graph</h3>
         <canvas id = "biorhythmGraphCanvas" width = "1000" height = "500"></canvas>
@@ -47,20 +41,16 @@
     <h2>My Life Profile</h2>
     <table>
         <tr>
-            <th>My Name :</th>
+            <th>My Name/이름:</th>
             <td>{{name}}</td>
         </tr>
         <tr>
-            <th>My Birthday :</th>
+            <th>My Birthday/생일:</th>
             <td>{{birthYear}}.{{birthMonth}}.{{birthDay}}</td>
         </tr>
         <tr>
-            <th>The number of days since birth : </th>
-            <td>생후 {{numDaysSinceBirth}}일</td>
-        </tr>
-        <tr>
-            <th>희망 직업군 :</th>
-            <td></td>
+            <th>The number of days since birth: </th>
+            <td>{{numDaysSinceBirth}} days after birth/생후 {{numDaysSinceBirth}}일</td>
         </tr>
     </table>
 </div>
@@ -69,25 +59,25 @@
     <h2>My Tarot X-Profile and Category</h3>
     <table>
         <tr>
-            <th><p>My Soul and Sun Sign Card :</p><p>
-                My Minor Soul Card : </p></th>
+            <th><p>My Soul and Sun Sign Card:</p><p>
+                My Minor Soul Card: </p></th>
             <td>{{soulCard}} ({{soulCardName}})</td>
         </tr>
         <tr>
-            <th>My Moon Sign Card :</th>
+            <th>My Moon Sign Card: </th>
             <td>{{moonCard}} ({{moonCardName}})</td>
         </tr>
         <tr>
-            <th>Year Card: {{currentYear}}년 기준</th>
+            <th>Year Card: For {{currentYear}} / {{currentYear}}년 기준</th>
             <td>{{yearCard}} ({{yearCardName}})</td>
         </tr>
         <tr>
-            <th>Zodiac Card : </th>
+            <th>Zodiac Card: </th>
             <td>{{zodiacCardName}}</td>
         </tr>
         <tr>
-            <th>My MBTI :</th>
-            <td></td>
+            <th>My MBTI:</th>
+            <td>{{mbti}}</td>
         </tr>
     </table>
 </div>

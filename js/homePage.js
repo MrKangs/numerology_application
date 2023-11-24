@@ -73,6 +73,19 @@ function lifeYearCardGraphDataPlot(birthYear, birthMonth, birthDay){
     return dataPoints;
 }
 
+// Check whether the user's mbti input is valid
+function checkMBTI(mbti){
+    mbti = mbti.toUpperCase();
+    var validMBTI = ["INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"];
+    if (validMBTI.includes(mbti)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
 // Wait for the HTML document to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     // Get a reference to the form element
@@ -88,13 +101,23 @@ document.addEventListener("DOMContentLoaded", function () {
         var birthYear = parseInt(document.getElementById("birthYear").value);
         var birthMonth = parseInt(document.getElementById("birthMonth").value);
         var birthDay = parseInt(document.getElementById("birthDay").value);
-
+        if (document.getElementById("needInfo").checked){
+            var needInfo = true;
+        }
+        else{
+            var needInfo = false;
+        }
         var soulCard = soulCardCalc(birthYear, birthMonth, birthDay);
         var moonCard = moonCardCalc(birthMonth, birthDay);
         var yearCard = yearCardCalc(birthMonth, birthDay);
         var lifeYearCardGraphData = lifeYearCardGraphDataPlot(birthYear, birthMonth, birthDay);
-
-
+        var mbti = document.getElementById("mbti").value;
+        if (checkMBTI(mbti)){
+            var validMBTI = mbti.toUpperCase();
+        }
+        else{
+            var validMBTI = "Invalid/Incorrect MBTI";
+        }
 
         // Create a query JSON
         var query = {
@@ -102,10 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
             birthYear: birthYear,
             birthMonth: birthMonth,
             birthDay: birthDay,
+            mbti: validMBTI,
             soulCard: soulCard,
             moonCard: moonCard,
             yearCard: yearCard,
             dataPoints: lifeYearCardGraphData,
+            needInfo: needInfo,
+
         };
         const queryString = JSON.stringify(query);
         window.location.href = `resultPage.html?query=${encodeURIComponent(queryString)}`;
