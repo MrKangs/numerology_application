@@ -77,21 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('data/card.json').then(response => response.json()).then(data => {
 
         const ztwelve = getZodiacTwelveSign(queryObject.birthDay, queryObject.birthMonth);
-        const zforty = getZodiacFortyEightSign(queryObject.birthDay, queryObject.birthMonth);
        
         // Filter the cards that matches the profile
         const soulCards = data["S_Card"][queryObject.soulCard -1];
         const moonCards = data["M_Card"][queryObject.moonCard -1];
         const yearCards = data["Y_Card"][queryObject.yearCard -1];
         const zodiacCards = data["Z12_Card"][ztwelve];
-        const zodiacCards2 = data["Z48_Card"][zforty];
         
         // If the user wants basic information, then display the basic information
         if (queryObject.needInfo == true){
-            document.getElementById('info').innerHTML += '<img src = "img/0-1.png" alt = "defaultOne"><img src = "img/0-2.png" alt = "defaultTwo"><img src = "img/0-3.png" alt = "defaultThree"><img src = "img/0-4.png" alt = "defaultFour"><img src = "img/0-5.png" alt = "defaultFive">';
+            document.getElementById('info').innerHTML += '<img src = "img/0-1.png" alt = "defaultOne"><img src = "img/0-2.png" alt = "defaultTwo"><img src = "img/0-3.png" alt = "defaultThree">';
             document.getElementById('infoMoon').innerHTML += '<img src = "img/m-0.png" alt = "moonDefault">';
-            document.getElementById('infoYear1').innerHTML += '<img src = "img/y-0.png" alt = "yearDefault">';
-            document.getElementById('infoYear2').innerHTML += '<img src = "img/y-23.png" alt = "yearCardAnalysisDefaultOne"><img src = "img/y-24.png" alt = "yearCardAnalysisDefaultTwo">';
+            document.getElementById('infoYear').innerHTML += '<img src = "img/y-0.png" alt = "yearDefault">';
             document.getElementById('infoZodiac').innerHTML += '<img src = "img/z-0.png" alt = "zodiacDefault">';
             document.getElementById('infoMBTI').innerHTML += '<img src = "img/mbti-0.png" alt = "mbtiDefaultOne"><img src = "img/mbti-1.png" alt = "mbtiDefaultTwo">';
             document.getElementById('infoLifePath').innerHTML += '<img src = "img/b-0.png" alt = "biorhythmDefault">';
@@ -102,23 +99,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const soulCardTitle = '<h2>Sun Sign(Sun:들어 나는 나의 모습) = Soul Card(1번-9번 : 9장의 카드): {{title}}</h2>';
         const soulCardImageOne = '<img src="{{imageOne}}">';
         const soulCardImageTwo = '<img src="{{imageTwo}}">';
-        const soulCardImageThree = '<img src="{{imageThree}}">';
 
         var soulCardTitleTemplate = Handlebars.compile(soulCardTitle);
         var soulCardImageOneTemplate = Handlebars.compile(soulCardImageOne);
         var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageTwo);
-        var soulCardImageThreeTemplate = Handlebars.compile(soulCardImageThree);
 
         
         var soulCardTitleData = soulCardTitleTemplate({title: soulCards["c_id"]});
         var soulCardImageOneData = soulCardImageOneTemplate({imageOne: soulCards["c_image_1"]});
         var soulCardImageTwoData = soulCardImageTwoTemplate({imageTwo: soulCards["c_image_2"]});
-        var soulCardImageThreeData = soulCardImageThreeTemplate({imageThree: soulCards["c_image_3"]});
+        
 
         document.getElementById('soulCard').innerHTML += soulCardTitleData;
         document.getElementById('soulCard').innerHTML += soulCardImageOneData;
         document.getElementById('soulCard').innerHTML += soulCardImageTwoData;
-        document.getElementById('soulCard').innerHTML += soulCardImageThreeData;
 
         // moonCard Image Tag Insert
         const moonCardTitle = '<h2>Moon Sign(Moon:들어 나지 않는 나의 모습) : {{title}}</h2>';
@@ -154,15 +148,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var zodiacTwelveCardImageData = zodiacTwelveCardImageTemplate({image: zodiacCards["c_image"]});
 
         document.getElementById('zodiacTwelveCard').innerHTML += zodiacTwelveCardImageData;
-
-        // zodiacTwelveCard Image Tag Insert
-        const zodiacFortyEightCardImage = '<img src="{{image}}">';
-
-        var zodiacFortyEightCardImageTemplate = Handlebars.compile(zodiacFortyEightCardImage);
-
-        var zodiacFortyEightCardImageData = zodiacFortyEightCardImageTemplate({image: zodiacCards2["c_image"]});
-
-        document.getElementById('zodiacFortyEightCard').innerHTML += zodiacFortyEightCardImageData;
 
         // My Tarot Profile Handlebars Template
         const tarotProfileTemplateSource = document.getElementById('tarot-profile-template').innerHTML;
