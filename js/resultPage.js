@@ -120,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('soulCard').innerHTML += soulCardTitleData;
         document.getElementById('soulCard').innerHTML += soulCardImageOneData;
         document.getElementById('soulCard').innerHTML += soulCardImageTwoData;
+        document.getElementById('soulCard').innerHTML += soulCardImageThreeData;
+        document.getElementById('soulCard').innerHTML += soulCardImageFourData;
 
         // moonCard Image Tag Insert
         const moonCardTitle = '<h2>Moon Sign(Moon:들어 나지 않는 나의 모습) : {{title}}</h2>';
