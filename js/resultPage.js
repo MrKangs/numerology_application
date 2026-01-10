@@ -99,22 +99,22 @@ document.addEventListener('DOMContentLoaded', function () {
         const soulCardTitle = '<h2>Sun Sign(Sun:들어 나는 나의 모습) = Soul Card(1번-9번 : 9장의 카드): {{title}}</h2>';
         const soulCardImageOne = '<img src="{{imageOne}}">';
         const soulCardImageTwo = '<img src="{{imageTwo}}">';
-        const soulCardImageTwo = '<img src="{{imageThree}}">';
-        const soulCardImageTwo = '<img src="{{imageFour}}">';
+        const soulCardImageThree = '<img src="{{imageThree}}">';
+        const soulCardImageFour = '<img src="{{imageFour}}">';
 
         var soulCardTitleTemplate = Handlebars.compile(soulCardTitle);
         var soulCardImageOneTemplate = Handlebars.compile(soulCardImageOne);
         var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageTwo);
-        var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageThree);
-        var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageFour);
+        var soulCardImageThreeTemplate = Handlebars.compile(soulCardImageThree);
+        var soulCardImageFourTemplate = Handlebars.compile(soulCardImageFour);
 
 
         
         var soulCardTitleData = soulCardTitleTemplate({title: soulCards["c_id"]});
         var soulCardImageOneData = soulCardImageOneTemplate({imageOne: soulCards["c_image_1"]});
         var soulCardImageTwoData = soulCardImageTwoTemplate({imageTwo: soulCards["c_image_2"]});
-        var soulCardImageTwoData = soulCardImageTwoTemplate({imageThree: soulCards["c_image_3"]});
-        var soulCardImageTwoData = soulCardImageTwoTemplate({imageFour: soulCards["c_image_4"]});
+        var soulCardImageThreeData = soulCardImageTwoTemplate({imageThree: soulCards["c_image_3"]});
+        var soulCardImageFourData = soulCardImageTwoTemplate({imageFour: soulCards["c_image_4"]});
         
 
         document.getElementById('soulCard').innerHTML += soulCardTitleData;
