@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var soulCardTitleTemplate = Handlebars.compile(soulCardTitle);
         var soulCardImageOneTemplate = Handlebars.compile(soulCardImageOne);
         var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageTwo);
+        var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageThree);
+        var soulCardImageTwoTemplate = Handlebars.compile(soulCardImageFour);
+
 
         
         var soulCardTitleData = soulCardTitleTemplate({title: soulCards["c_id"]});
