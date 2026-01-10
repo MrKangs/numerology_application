@@ -4,55 +4,73 @@
         "c_id": 1,
         "c_name": "The Magician (마술사)",
         "c_image_1": "img/s1-1.png",
-        "c_image_2": "img/s1-2.png"
+        "c_image_2": "img/s1-2.png",
+        "c_image_3": "img/s1-3.png",
+        "c_image_4": "img/s1-4.png"
         },
         {
         "c_id": 2,
         "c_name": "The High Priestess (여사제)",
         "c_image_1": "img/s2-1.png",
-        "c_image_2": "img/s2-2.png"
+        "c_image_2": "img/s2-2.png",
+        "c_image_3": "img/s2-3.png",
+        "c_image_4": "img/s2-4.png"    
         },
         { 
         "c_id": 3,
         "c_name": "The Empress (황녀)",
         "c_image_1": "img/s3-1.png",
-        "c_image_2": "img/s3-2.png"
+        "c_image_2": "img/s3-2.png",
+        "c_image_3": "img/s3-3.png",
+        "c_image_4": "img/s3-4.png"    
         },
         {
         "c_id": 4,
         "c_name": "The Emperor (황제)",
         "c_image_1": "img/s4-1.png",
-        "c_image_2": "img/s4-2.png"
+        "c_image_2": "img/s4-2.png",
+        "c_image_3": "img/s4-3.png",
+        "c_image_4": "img/s4-4.png"    
         },
         {
         "c_id": 5,
         "c_name": "The Hierophant (교황)",
         "c_image_1": "img/s5-1.png",
-        "c_image_2": "img/s5-2.png"
+        "c_image_2": "img/s5-2.png",
+        "c_image_3": "img/s5-3.png",
+        "c_image_4": "img/s5-4.png"    
         },
         {
         "c_id": 6,
         "c_name": "The Lovers (연인)",
         "c_image_1": "img/s6-1.png",
-        "c_image_2": "img/s6-2.png"
+        "c_image_2": "img/s6-2.png",
+        "c_image_3": "img/s6-3.png",
+        "c_image_4": "img/s6-4.png"    
         },
         {
         "c_id": 7,
         "c_name": "The Chariot (장군)",
         "c_image_1": "img/s7-1.png",
-        "c_image_2": "img/s7-2.png"
+        "c_image_2": "img/s7-2.png",
+        "c_image_3": "img/s7-3.png",
+        "c_image_4": "img/s7-4.png"    
         },
         {
         "c_id": 8,
         "c_name": "Strength (용기)",
         "c_image_1": "img/s8-1.png",
-        "c_image_2": "img/s8-2.png"
+        "c_image_2": "img/s8-2.png",
+        "c_image_3": "img/s8-3.png",
+        "c_image_4": "img/s8-4.png"    
         },
         {
         "c_id": 9,
         "c_name": "The Hermit (은둔자)",
         "c_image_1": "img/s9-1.png",
-        "c_image_2": "img/s9-2.png"
+        "c_image_2": "img/s9-2.png",
+        "c_image_3": "img/s9-3.png",
+        "c_image_4": "img/s9-4.png"    
         }
     ],
     "M_Card": [
