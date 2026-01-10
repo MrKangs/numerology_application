@@ -99,6 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const soulCardTitle = '<h2>Sun Sign(Sun:들어 나는 나의 모습) = Soul Card(1번-9번 : 9장의 카드): {{title}}</h2>';
         const soulCardImageOne = '<img src="{{imageOne}}">';
         const soulCardImageTwo = '<img src="{{imageTwo}}">';
+        const soulCardImageTwo = '<img src="{{imageThree}}">';
+        const soulCardImageTwo = '<img src="{{imageFour}}">';
 
         var soulCardTitleTemplate = Handlebars.compile(soulCardTitle);
         var soulCardImageOneTemplate = Handlebars.compile(soulCardImageOne);
