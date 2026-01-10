@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var soulCardTitleData = soulCardTitleTemplate({title: soulCards["c_id"]});
         var soulCardImageOneData = soulCardImageOneTemplate({imageOne: soulCards["c_image_1"]});
         var soulCardImageTwoData = soulCardImageTwoTemplate({imageTwo: soulCards["c_image_2"]});
-        var soulCardImageTwoData = soulCardImageTwoTemplate({imageTwo: soulCards["c_image_3"]});
-        var soulCardImageTwoData = soulCardImageTwoTemplate({imageTwo: soulCards["c_image_4"]});
+        var soulCardImageTwoData = soulCardImageTwoTemplate({imageThree: soulCards["c_image_3"]});
+        var soulCardImageTwoData = soulCardImageTwoTemplate({imageFour: soulCards["c_image_4"]});
         
 
         document.getElementById('soulCard').innerHTML += soulCardTitleData;
