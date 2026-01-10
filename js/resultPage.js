@@ -138,16 +138,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // yearCard Image Tag Insert
         const yearCardTitle = '<h2>[Life Year Card] {{year}}년기준 : {{title}}</h2>';
-        const yearCardImage = '<img src="{{image}}">';
+        const yearCardImageOne= '<img src="{{imageOne}}">';
+        const yearCardImageTwo = '<img src="{{imageTwo}}">';
+
 
         var yearCardTitleTemplate = Handlebars.compile(yearCardTitle);
-        var yearCardImageTemplate = Handlebars.compile(yearCardImage);
+        var yearCardImageOneTemplate = Handlebars.compile(yearCardImageOne);
+        var yearCardImageTwoTemplate = Handlebars.compile(yearCardImageTwo);
+
 
         var yearCardTitleData = yearCardTitleTemplate({year: date.getFullYear(), title: yearCards["c_id"]});
-        var yearCardImageData = yearCardImageTemplate({image: yearCards["c_image"]});
+        var yearCardImageOneData = yearCardImageOneTemplate({imageOne: yearCards["c_image_1"]});
+        var yearCardImageTwoData = yearCardImageTwoTemplate({imageTwo: yearCards["c_image_2"]});
 
         document.getElementById('yearCard').innerHTML += yearCardTitleData;
-        document.getElementById('yearCard').innerHTML += yearCardImageData;
+        document.getElementById('yearCard').innerHTML += yearCardImageOneData;
+        document.getElementById('yearCard').innerHTML += yearCardImageTwoData;
+
 
         // zodiacTwelveCard Image Tag Insert
         const zodiacTwelveCardImage = '<img src="{{image}}">';
