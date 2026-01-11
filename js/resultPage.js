@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // If the user wants basic information, then display the basic information
         if (queryObject.needInfo == true){
-            document.getElementById('info').innerHTML += '<img src = "img/0-1.png" alt = "defaultOne"><img src = "img/0-2.png" alt = "defaultTwo"><img src = "img/0-3.png" alt = "defaultThree">';
+            document.getElementById('info').innerHTML += '<img src = "img/0-1.png" alt = "defaultOne"><img src = "img/0-2.png" alt = "defaultTwo"><img src = "img/0-3.png" alt = "defaultThree"><img src = "img/0-4.png" alt = "defaultFour">';
             document.getElementById('infoMoon').innerHTML += '<img src = "img/m-0.png" alt = "moonDefault">';
             document.getElementById('infoYear').innerHTML += '<img src = "img/y-0.png" alt = "yearDefault">';
             document.getElementById('infoZodiac').innerHTML += '<img src = "img/z-0.png" alt = "zodiacDefault">';
